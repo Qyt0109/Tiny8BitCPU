@@ -17,7 +17,7 @@
 
 ## Define assembly instructions
 
-|Opcode|Instruction|Description|Special useage|
+|Opcode|Instruction|Description|Special usage|
 |:-:|:-|:-|:-|
 |-0000|add rd, rs, imm|rd = rd + rs + imm||
 |-0001|sub rd, rs, imm|rd = rd - rs - imm||
@@ -30,14 +30,14 @@
 ||
 |-1000|cmp rd, rs, imm|(rd < rs + imm) => rd = -1<br>(rd == rs + imm) => rd = 0<br>(rd < rs + imm) => rd = 1||
 ||
-|-1001|jeq rd, rs, imm|(rd == rs) => PC = PC + imm|{cmp rd, rs<br>xor tmp, tmp<br>addi tmp, -1<br>jeq rd, tmp} => jump if (rd < rs)|
+|-1001|jeq rd, rs, imm|(rd == rs) => PC = PC + imm||
 ||
 |-1010|ld rd, rs, imm|rd = mem[rs + imm]||
 |-1011|st rd, rs, imm|mem[rs + imm] = rd||
 ||
 |1100|X|
 ||
-|1101|stpc rd, imm|rd = PC + imm|{stpc x1, 2<br>jeq x0, x0, 4 // alway jump<br>(1)... continue after function<br>(2)...<br>(3)...<br>(4)... a function here<br>...<br>ldpc x1, 0 // return}|
+|1101|stpc rd, imm|rd = PC + imm||
 |-1110|ldpc rd, imm|PC = rd + imm|
 ||
 |-0111|ldrdrs, value|rdrs = value|
